@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  username  String    @unique
+  email     String    @unique
+  password  String
+  bio       String?
+  avatarUrl String?
+  createdAt DateTime  @default(now())
+  lastSeen  DateTime  @default(now())
+
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
+  sentFriendRequests     Friendship[] @relation("SentFriendRequests")
+  receivedFriendRequests Friendship[] @relation("ReceivedFriendRequests")
+}
+
+model Message {
+  id         Int      @id @default(autoincrement())
+  content    String?
+  imageUrl   String?
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  senderId   Int
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id])
+
+  receiverId Int
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+}
+
+model Friendship {
+  id         Int      @id @default(autoincrement())
+  status     String   @default("pending") // "pending" | "accepted"
+  createdAt  DateTime @default(now())
+
+  requesterId Int
+  requester   User @relation("SentFriendRequests", fields: [requesterId], references: [id])
+
+  addresseeId Int
+  addressee   User @relation("ReceivedFriendRequests", fields: [addresseeId], references: [id])
+
+  @@unique([requesterId, addresseeId])
+}
