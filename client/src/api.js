@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://messaging-app-production-8ef3.up.railway.app";
 
 async function handleResponse(res) {
   if (!res.ok) {
