@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
-  },
+"scripts": {
+  "start": "node src/server.js",
+  "dev": "node --watch src/server.js",
+  "postinstall": "prisma generate"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -29,3 +29,7 @@
     "prisma": "^7.9.1"
   }
 }
+
+
+
+
