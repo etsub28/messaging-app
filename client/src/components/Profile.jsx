@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { logout, updateProfile, uploadAvatar } from "../api";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://messaging-app-production-8ef3.up.railway.app";
 
 function Profile({ user, onLogout, onUpdate }) {
   const [editing, setEditing] = useState(false);

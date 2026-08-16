@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllUsers, sendFriendRequest } from "../api";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://messaging-app-production-8ef3.up.railway.app";
 
 function UsersList({ onSelectUser }) {
   const [users, setUsers] = useState([]);

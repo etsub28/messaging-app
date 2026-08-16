@@ -5,7 +5,7 @@ import {
   respondToFriendRequest,
 } from "../api";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://messaging-app-production-8ef3.up.railway.app";
 const POLL_INTERVAL = 5000; // 5 seconds
 
 function Friends({ onSelectFriend }) {
@@ -122,3 +122,4 @@ function Friends({ onSelectFriend }) {
 }
 
 export default Friends;
+

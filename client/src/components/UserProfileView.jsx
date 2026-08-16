@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getUserById } from "../api";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://messaging-app-production-8ef3.up.railway.app";
 
 function UserProfileView({ userId, onBack }) {
   const [profile, setProfile] = useState(null);

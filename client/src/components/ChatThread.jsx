@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { getConversation, sendMessage } from "../api";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://messaging-app-production-8ef3.up.railway.app";
 
 function ChatThread({ userId, currentUserId, onBack }) {
   const [messages, setMessages] = useState([]);
@@ -184,5 +184,6 @@ function ChatThread({ userId, currentUserId, onBack }) {
 }
 
 export default ChatThread;
+
 
 
